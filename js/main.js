@@ -3,8 +3,12 @@
 console.clear();
 
 {
-    const year = 2023;
-    const month = 1; 
+    // let year = 2023;
+    // let month = 1; 
+
+    const today = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth();
 
     function getCalendarhead(){
         const dates = [];
@@ -33,6 +37,9 @@ console.clear();
                 isDisabed: false,
             });
         }
+        if (year === today.getFullYear() && month ===today.getMonth()){
+            dates[today.getDate() - 1].isToday = true;
+        } 
         // console.log(dates);
         return dates
     }
@@ -53,6 +60,15 @@ console.clear();
     }
 
 function createCalendar(){
+
+    const tbody = document.querySelector("tbody");
+    while (tbody.firstChild){
+        tbody.removeChild(tbody.firstChild);
+    }
+
+    const title = `${year}/${month +1}`;
+    document.getElementById("title").textContent = title;
+
     const dates = [
         ...getCalendarhead(),
         ...getCalendarBody(),
@@ -71,7 +87,7 @@ function createCalendar(){
             const td = document.createElement("td");
             td.textContent = date.date;
             if(date.isToday){
-                td.classList,add("today");
+                td.classList.add("today");
             }
             if(date.isDisabled){
                 td.classList.add("disabled")
@@ -84,13 +100,36 @@ function createCalendar(){
     });
 
     // console.log(dates);
-    console.log(weeks);
+    // console.log(weeks);
 }
+
+document.getElementById("prev").addEventListener("click",() =>{
+    month--;
+    if (month < 0){
+        year--;
+        month = 11;
+    }
+    createCalendar();
+
+    })
+
+    document.getElementById("next").addEventListener("click",() =>{
+        month++;
+        if (month > 11){
+            year++;
+            month = 0;
+        }
+
+        createCalendar();
+
+    })
+    document.getElementById("today").addEventListener("click",() =>{
+        year = today.getFullYear();
+        month = today.getMonth();
+
+        createCalendar();
+        
+    })
 createCalendar();
-
-
-    // getCalendarhead();
-    // getCalendarBody();
-    // getCalendarTail();
 
 }
