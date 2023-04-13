@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>計算機アプリ</title>
+    <title>時間変換アプリ</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>iTeen 電卓</h1>
-    <div class="cal">
-        <input type="text" id="firstNumber" placeholder="0" style="text-align: right;">
-        <br>
-        <input type="text" id="secondNumber" placeholder="0" style="text-align: right;">
-        <br>
-        <button onclick="add()">+</button>
-        <button onclick="subtract()">-</button>
-        <button onclick="multiply()">x</button>
-        <button onclick="divide()">÷</button>
-        <button onclick="clearResult()">c</button>
-        <button onclick="remainder()">あまり</button>
-        <br>
-        <input type="text" id="result" placeholder="0" readonly style="text-align: right;">
+    <h1>iTeen 時間変換アプリ</h1>
+    <form>
+        <label>時間：</label>
+        <input type="number" id="time"><br><br>
+        <label>単位</label>
+        <select id="unit">
+            <option value="秒">秒</option>
+            <option value="分">分</option>
+            <option value="時間">時間</option>
+            <option value="日">日</option>
+            <option value="週">週</option>
+            <option value="月">月</option>
+            <option value="年">年</option>
+        </select><br><br>
+        <button type="button" onclick="convertTime()">変換する</button><br><br>
 
-    </div>
-    
+        <div id="change-box">
+
+        </div>
+
+    </form>
     <script src="js/main.js"></script>
 </body>
 </html>

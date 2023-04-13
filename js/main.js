@@ -1,42 +1,53 @@
 "use strict"
 
-function add() {
-    const firstNumber = parseFloat(document.getElementById("firstNumber").value);
-    const secondNumber = parseFloat(document.getElementById("secondNumber").value);
-    const result = firstNumber + secondNumber;
-    document.getElementById("result").value = result;
-}
+let seconds = 0;
 
-function subtract() {
-    const firstNumber = parseFloat(document.getElementById("firstNumber").value);
-    const secondNumber = parseFloat(document.getElementById("secondNumber").value);
-    const result = firstNumber - secondNumber;
-    document.getElementById("result").value = result;
-}
+function convertTime() {
+    let time = document.getElementById("time").value;
+    console.log(time);
+    let unit = document.getElementById("unit").value;
+    console.log(unit);
+    if (unit === "秒") {
+        seconds = time;
+    } else if (unit === "分") {
+        seconds = time * 60;
+    } else if (unit === "時間") {
+        seconds = time * 60 * 60;
+    } else if (unit === "日") {
+        seconds = time * 60 * 60 * 24;
+    } else if (unit === "週") {
+        seconds = time * 60 * 60 * 24 * 7;
+    } else if (unit === "月") {
+        seconds = time * 60 * 60 * 24 * 30;
+    } else if (unit === "年") {
+        seconds = time * 60 * 60 * 24 * 365;
+    }
 
-function multiply() {
-    const firstNumber = parseFloat(document.getElementById("firstNumber").value);
-    const secondNumber = parseFloat(document.getElementById("secondNumber").value);
-    const result = firstNumber * secondNumber;
-    document.getElementById("result").value = result;
-}
+    const minutes = seconds / 60;
+    console.log(minutes);
+    const hours = minutes / 60;
+    const days = hours / 24;
+    const weeks = days / 7;
+    const months = days / 30;
+    const years = days / 365;
 
-function divide() {
-    const firstNumber = parseFloat(document.getElementById("firstNumber").value);
-    const secondNumber = parseFloat(document.getElementById("secondNumber").value);
-    const result = firstNumber / secondNumber;
-    document.getElementById("result").value = result;
-}
+    const secondsHtml = Number(seconds).toFixed(2) ;
+    const minutesHtml = Number(minutes).toFixed(2) ;
+    const hoursHtml = Number(hours).toFixed(2) ;
+    const daysHtml = Number(days).toFixed(2) ;
+    const weeksHtml = Number(weeks).toFixed(2) ;
+    const monthsHtml = Number(months).toFixed(2) ;
+    const yearsHtml = Number(years).toFixed(2) ;
 
-function clearResult() {
-    document.getElementById("firstNumber").value = 0;
-    document.getElementById("secondNumber").value = 0;
-    document.getElementById("result").value = 0;
-}
-
-function remainder() {
-    const firstNumber = parseFloat(document.getElementById("firstNumber").value);
-    const secondNumber = parseFloat(document.getElementById("secondNumber").value);
-    const result = firstNumber % secondNumber;
-    document.getElementById("result").value = result;
-}
+    const change = document.getElementById("change-box");
+    change.innerHTML = `
+    <p>変換結果を表示</p>
+    <p>${secondsHtml} 秒</p>
+    <p>${minutesHtml} 分</p>
+    <p>${hoursHtml} 時間</p>
+    <p>${daysHtml} 日</p>
+    <p>${weeksHtml} 週</p>
+    <p>${monthsHtml} 月</p>
+    <p>${yearsHtml} 年</p>
+    `;
+ }
