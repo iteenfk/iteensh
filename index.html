@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>時間変換アプリ</title>
+    <title>お天気アプリ</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>iTeen 時間変換アプリ</h1>
-    <form>
-        <label>時間：</label>
-        <input type="number" id="time"><br><br>
-        <label>単位</label>
-        <select id="unit">
-            <option value="秒">秒</option>
-            <option value="分">分</option>
-            <option value="時間">時間</option>
-            <option value="日">日</option>
-            <option value="週">週</option>
-            <option value="月">月</option>
-            <option value="年">年</option>
-        </select><br><br>
-        <button type="button" onclick="convertTime()">変換する</button><br><br>
+    <h1>天気アプリ</h1>
+    <div class="main">
+        <select id="select">
+            <option value="Fukuoka">福岡</option>
+            <option value="Kasuga">春日</option>
+            <option value="Tokyo">東京</option>
+            <option value="Osaka">大阪</option>
+            <option value="Nagoya">名古屋</option>
+            <option value="Kurume">久留米</option>
+            <option value="Arashiyama">嵐山</option>
+        </select>
 
-        <div id="change-box">
-
-        </div>
-
-    </form>
+        <div id="box"></div>
+    </div>
+    
     <script src="js/main.js"></script>
 </body>
 </html>

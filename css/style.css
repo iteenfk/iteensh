@@ -4,29 +4,36 @@
 }
 
 h1{
-    font-size: 15px;
-    background-color: rgb(234, 234, 234);
+    font-size: 20px;
+    background-color: rgb(249, 255, 255);
     width: 200px;
     height: 50px;
     text-align: center;
     line-height: 50px;
     margin: 10px auto;
-    border: 1px solid rgb(35, 35, 35);
+    border: 6px solid rgb(128, 145, 145);
     border-radius: 10px;
+    color: rgb(95, 108, 108);
 }
 
-form{
-    background-color: rgb(240, 240, 240);
+.main{
+    background-color: rgb(249, 255, 255);
     width: 200px;
     height: auto;
     text-align: center;
     margin: 0 auto;
-    border: 1px solid rgb(35, 35, 35);
+    border: 6px solid rgb(128, 145, 145);
     border-radius: 10px;
-    padding-top: 20px;
 }
 
-input{
-    width: 80px;
-    text-align: right;
+#box h3{
+    color: rgb(128, 145, 145);
+    font-size: 18px;
+}
+
+#box p{
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+    padding: 0 0 0 8px;
 }
