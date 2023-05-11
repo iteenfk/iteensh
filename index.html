@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お天気アプリ</title>
+    <title>今日の予定リスト</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>天気アプリ</h1>
+    <h1>今日の予定リスト</h1>
     <div class="main">
-        <select id="select">
-            <option value="Fukuoka">福岡</option>
-            <option value="Kasuga">春日</option>
-            <option value="Tokyo">東京</option>
-            <option value="Osaka">大阪</option>
-            <option value="Nagoya">名古屋</option>
-            <option value="Kurume">久留米</option>
-            <option value="Arashiyama">嵐山</option>
-        </select>
 
-        <div id="box"></div>
+        <input type="text" id="in" placeholder="今日の予定を入れてね">
+
+        <button onclick="A()">予定の追加</button>
+
+        <button onclick="C()">予定の削除</button>
+
+        <ul id="out">
+
+        </ul>
+
+        <button onclick="P()">プリントPDF</button>
+
     </div>
-    
+
     <script src="js/main.js"></script>
+    
 </body>
 </html>
