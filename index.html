@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>今日の予定リスト</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>箇条書きノート</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>今日の予定リスト</h1>
-    <div class="main">
+    <h1>箇条書きノート</h1>
 
-        <input type="text" id="in" placeholder="今日の予定を入れてね">
-
-        <button onclick="A()">予定の追加</button>
-
-        <button onclick="C()">予定の削除</button>
-
-        <ul id="out">
-
-        </ul>
-
-        <button onclick="P()">プリントPDF</button>
-
+    <div class="inDiv">
+      <h4>文字入力エリア</h4>
+      <textarea id="in" placeholder="全角で何でも入力してね！"></textarea>
+      <br>
+      <button onclick="S()">結果出力</button>
+      <button onclick="C()">出力削除</button>
+      <button onclick="P()">PDFに保存</button>
     </div>
+    <br>
+    <div class="outDiv">
+        <h4>文字出力エリア</h4>
+        <ol id="out">
 
-    <script src="js/main.js"></script>
-    
+        </ol>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

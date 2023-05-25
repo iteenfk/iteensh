@@ -1,23 +1,29 @@
 "use strict"
 
-function A() {
+function S() {
+    let input = document.getElementById("in"). value;
+    if (!input) {
+        alert("何も入力されていません。");
+        return;
+    }
 
-    const li = document.createElement("li");
-    li.textContent = document.getElementById("in").value;
+    let li = document.createElement("li");
+    let output = document.getElementById("out");
+    li.textContent = input;
 
-    const ul = document.getElementById("out");
-    ul.appendChild(li);
+    output.appendChild(li);
 
     document.getElementById("in").value = "";
 }
 
-function C() {
+function C(){
     const ul = document.getElementById("out");
-    while(ul.firstChild != null) {
-        ul.removeChild(ul.firstChild);
+    while (ul.firstChild != null) {
+        ul.removeChild(ul.firstChild)
+        console;
     }
 }
 
-function P() {
-    window.print();
+function P(){
+    window.print()
 }
