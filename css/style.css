@@ -1,26 +1,30 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
+
 h1{
-    font-size: 20px;
+    font-size: 25px;
+    background-color: rgb(191, 208, 208);
+    width: 500px;
+    height: 50px;
     text-align: center;
+    line-height: 50px;
+    margin: 10px auto;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 10px;
 }
-.inDiv{
-    text-align: center;
-}
-#in{
-width: 400px;
-height: 150px;
-}
-.outDiv{
+
+.main{
     text-align: center;
 }
 
-#out {
-    width: 400px;
-    display: block;
-    margin: auto;
+ol{
+    text-align: center;
+    margin: 0px auto;
+    width: 30%;
+}
+
+li{
     text-align: left;
-
 }
