@@ -2,32 +2,27 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>英単語帳作成アプリ</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>音楽プレーヤー</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>英単語帳作成アプリ</h1>
-    <br>
-
     <div class="main">
-        <label>単語 :
-            <input type="text" id="in1">
-        </label>
-        <br>
-        <label>意味 :
-            <input type="text" id="in2">
-        </label>
-        <br>
-        <button onclick="A()">追加</button>
-        <button onclick="C()">クリア</button>
-        <button onclick="P()">印刷</button>
-    </div>
-    
-    <br>
-    <ol id="out"></ol>
+        <h1>音楽プレーヤー</h1>
+        <audio id="player" src="test.mp3"></audio>
 
-    <script src="js/main.js"></script>
+        <div class="btn">
+            <button onclick="play()">再生</button>
+            <button onclick="pause()">一時停止</button>
+            <button onclick="stop()">停止</button>
+        </div>
+        <br>
+        <div class="in">
+            <input type="range" id="slider" oninput="volume()" min="0" max="100" value="50" >
+            <p id="vol">50%</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
     
 </body>
 </html>
