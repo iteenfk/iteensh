@@ -1,28 +1,42 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>音楽プレーヤー</title>
-    <link rel="stylesheet" href="style.css">
+<title>練習</title>
+<style>
+.main{
+border:1px solid black;
+width:300px;
+text-align:center;
+margin:20px auto;
+background-color:white;
+border-radius:20px;
+}
+
+h1{
+text-align:center;
+font-size:20px;
+
+}
+</style>
+
 </head>
 <body>
-    <div class="main">
-        <h1>音楽プレーヤー</h1>
-        <audio id="player" src="test.mp3"></audio>
+<h1>練習問題</h1>
+<div class="main">
+<p id="out2">こんにちは</p>
+<input type="range" min="0" max="100" value="50" id="in1" oninput="A()">
+<p id="out1"></p>
+<button onclick="B()">ok</button>
+</div>
 
-        <div class="btn">
-            <button onclick="play()">再生</button>
-            <button onclick="pause()">一時停止</button>
-            <button onclick="stop()">停止</button>
-        </div>
-        <br>
-        <div class="in">
-            <input type="range" id="slider" oninput="volume()" min="0" max="100" value="50" >
-            <p id="vol">50%</p>
-        </div>
-    </div>
 
-    <script src="main.js"></script>
-    
+<script>
+function A(){
+document.getElementById("out1").textContent = document.getElementById("in1").value;
+}
+
+function B(){
+document.getElementById("out2").innerHTML = "<b>こんばんは</b>";
+}
+</script>
 </body>
 </html>
