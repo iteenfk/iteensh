@@ -1,42 +1,52 @@
 <html>
 <head>
-<title>練習</title>
+<title>WEBリンクアプリ</title>
 <style>
 .main{
-border:1px solid black;
+border:1px solid red;
 width:300px;
 text-align:center;
-margin:20px auto;
-background-color:white;
+margin:auto;
+padding-top:20px;
 border-radius:20px;
 }
 
 h1{
-text-align:center;
 font-size:20px;
-
+text-align:center;
 }
 </style>
-
 </head>
 <body>
-<h1>練習問題</h1>
+<h1>WEBリンク先アプリ</h1>
 <div class="main">
-<p id="out2">こんにちは</p>
-<input type="range" min="0" max="100" value="50" id="in1" oninput="A()">
-<p id="out1"></p>
-<button onclick="B()">ok</button>
+<select id="in" onchange="A()">
+<option value="">WEbリンク先を選択</option>
+<option value="1">Yahoo</option>
+<option value="2">Google</option>
+<option value="3">MSN</option>
+</select>
+
+<p id="out">WEBリンク先</p>
 </div>
-
-
 <script>
+
 function A(){
-document.getElementById("out1").textContent = document.getElementById("in1").value;
+if (document.getElementById("in").value =="1"){
+document.getElementById("out").innerHTML = `<a href="https://yahoo.co.jp" target="_blank">yahoo</a>`;
 }
 
-function B(){
-document.getElementById("out2").innerHTML = "<b>こんばんは</b>";
+if (document.getElementById("in").value =="2"){
+document.getElementById("out").innerHTML = `<a href="https://google.co.jp" target="_blank">Google</a>`;
 }
+
+if (document.getElementById("in").value =="3"){
+document.getElementById("out").innerHTML = `<a href="https://msn.co.jp" target="_blank">MSN</a>`;
+}
+
+}
+
+
 </script>
 </body>
 </html>
