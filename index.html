@@ -1,14 +1,16 @@
 <html>
 <head>
-<title>WEBリンクアプリ</title>
+<title>チェックボックスの練習</title>
 <style>
-.main{
-border:1px solid red;
+body{
+background-color:white;
+}
+.x{
+border: 2px dotted black;
 width:300px;
 text-align:center;
 margin:auto;
-padding-top:20px;
-border-radius:20px;
+border-radius:10px;
 }
 
 h1{
@@ -18,35 +20,33 @@ text-align:center;
 </style>
 </head>
 <body>
-<h1>WEBリンク先アプリ</h1>
-<div class="main">
-<select id="in" onchange="A()">
-<option value="">WEbリンク先を選択</option>
-<option value="1">Yahoo</option>
-<option value="2">Google</option>
-<option value="3">MSN</option>
-</select>
-
-<p id="out">WEBリンク先</p>
+<h1>チェックボックスの練習</h1>
+<div class="x">
+商品A:1,000円<input type="checkbox" value=1000 id="a" onchange="C()">
+商品B:1,500円<input type="checkbox" value=1500 id="b" onchange="C()">
+<br>
+合計金額:<span id="out">0</span>
+<br>
+<button onclick="R()">再読み込み</button>
 </div>
 <script>
 
-function A(){
-if (document.getElementById("in").value =="1"){
-document.getElementById("out").innerHTML = `<a href="https://yahoo.co.jp" target="_blank">yahoo</a>`;
+
+function C(){
+let total =0;
+if (document.getElementById("a").checked == true){
+total += parseInt(document.getElementById("a").value);
 }
 
-if (document.getElementById("in").value =="2"){
-document.getElementById("out").innerHTML = `<a href="https://google.co.jp" target="_blank">Google</a>`;
+if (document.getElementById("b").checked == true){
+total += parseInt(document.getElementById("b").value);
+}
+document.getElementById("out").textContent = total.toLocaleString();
 }
 
-if (document.getElementById("in").value =="3"){
-document.getElementById("out").innerHTML = `<a href="https://msn.co.jp" target="_blank">MSN</a>`;
+function R(){
+location.reload();
 }
-
-}
-
-
 </script>
 </body>
 </html>
