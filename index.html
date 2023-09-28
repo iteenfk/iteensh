@@ -1,70 +1,52 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9-14</title>
-    <style>
-
-        *{
-            padding: 0;
-            margin: 0;
-        }
-
-        h1{
-            font-size: 20px;
-            text-align: center;
-            margin: 0 0 0 30px;
-        }
-
-        .x{
-            text-align: center;
-        }
-
-        ul{
-            text-align: center;
-        }
-    </style>
+<title>9-28</title>
 </head>
 <body>
-    <h1>勉強達成計画アプリ</h1>
-    <div class="x">
-    達成目標: <input type="text" id="inte">
-    目標カレンダー: <input type="date" id="inda">
-    <button onclick="A()">追加</button>
-    <button onclick="C()">クリア</button>
-    <button onclick="P()">プリント</button>
-    </div> 
-   
+<p id="out">表示</p>
+<button onclick="start()">開始</button>
+<button onclick="stop()">停止</button>
+<script>
 
-        <ul id="out">目標計画項目一覧
-            
-        </ul>
-    
+function start(){
+setInterval(B,1000)
+}
 
-    <script>
-        function A(){
+function B(){
+const now = new Date();
 
-            const inte = document.getElementById("inte").value;
-            const inda = document.getElementById("inda").value;
-            if (inte != "" && inda != ""){
+const year = now.getFullYear();
+const month = now.getMonth()+1;
+const date = now.getDate();
+let day = now.getDay();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+const seconds = now.getSeconds();
 
-                const li = document.createElement("li");
-                li.textContent = `${inda}${inte}`;
-                document.getElementById("out").appendChild(li);
-    
-                document.getElementById("inte").value = "";
-                document.getElementById("inda").value = "";
-            }
-        }
+if(day == 0){
+  day = "日";
+}
+if(day == 1){
+  day = "月";
+}
+if(day == 2){
+  day = "火";
+}
+if(day == 3){
+  day = "水";
+}
+if(day == 4){
+  day = "木";
+}
+if(day == 5){
+  day = "金";
+}
+if(day == 6){
+  day = "土";
+}
 
-        function C(){
-            location.reload();
-        }
-
-        function P(){
-            window.print();
-        }
-    </script>
+document.getElementById("out").textContent = `${year}年${month}月${date}日(${day})${hours}時${minutes}分${seconds}秒`;
+}
+</script>
 </body>
 </html>
