@@ -1,15 +1,32 @@
 <html>
 <head>
 <title>9-28</title>
+<style>
+.dsp_c{
+border:2px solid yellow;
+text-align:center;
+width:500px;
+margin:auto;
+}
+</style>
 </head>
+
 <body>
+<audio src="alert.mp3" id="alert_id"></audio>
+<div class="dsp_c">
 <p id="out">表示</p>
 <button onclick="start()">開始</button>
 <button onclick="stop()">停止</button>
+</div>
 <script>
 
 function start(){
 setInterval(B,1000)
+}
+
+function stop(){
+const alert = document.getElementById("alert_id");
+alert.pause();
 }
 
 function B(){
@@ -46,6 +63,11 @@ if(day == 6){
 }
 
 document.getElementById("out").textContent = `${year}年${month}月${date}日(${day})${hours}時${minutes}分${seconds}秒`;
+
+const alert = document.getElementById("alert_id");
+if (hours == 18 && minutes == 41){
+ alert.play();
+}
 }
 </script>
 </body>
