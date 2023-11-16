@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+}
+
+p{
+    display: inline-block;
+    margin: auto;
+
+}
+
+button{
+    margin: 10px;
+}

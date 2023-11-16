@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>10-26QRcode</title>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>QRCode作成</h1>
@@ -21,15 +22,24 @@
         const size =document.getElementById("size_id").value;
         const fore =document.getElementById("fore_id").value;
         const back =document.getElementById("back_id").value;
-        const opt = {text:url,
-            width:size,
-            height:size,
-            colorDark:fore,
-            colorLight:back
+
+        if (url != "" && size != "" && fore != "" && back != ""){
+
+            const opt = {text:url,
+                width:size,
+                height:size,
+                colorDark:fore,
+                colorLight:back
+    
+            }
+            
+            new QRCode(output,opt);
+            document.getElementById("url_id").value = "";
+            document.getElementById("size_id").value = "";
+            document.getElementById("fore_id").value = "";
+            document.getElementById("back_id").value = "";
 
         }
-        
-        new QRCode(output,opt);
     }
         </script>
         </body>
