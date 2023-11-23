@@ -2,45 +2,54 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>10-26QRcode</title>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-23</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>QRCode作成</h1>
-    URL:<input type="text" id="url_id" value="https:google.co jp"><br>
-    サイズ:<input type="text" id="size_id"><br>
-    前景色:<input type="text" id="fore_id"><br>
-    背景色:<input type="text" id="back_id"><br>
-    <button onclick="btn()">作成</button>
-    
-    <p id="output_id"></p>
+    <h1>好きな言語を選んでください。</h1>
+    <input type="radio" name="language" value="javascript">javascript
+    <input type="radio" name="language" value="python">python
+    <input type="radio" name="language" value="scratch">scratch
+    <br>
+    <button onclick="btn()">クリック</button>
+    <div id="output_id"></div>
+    <div id="img_id"></div>  
+
+
     <script>
-    function btn(){
-    const output = document.getElementById("output_id");
-        const url =document.getElementById("url_id").value;
-        const size =document.getElementById("size_id").value;
-        const fore =document.getElementById("fore_id").value;
-        const back =document.getElementById("back_id").value;
-
-        if (url != "" && size != "" && fore != "" && back != ""){
-
-            const opt = {text:url,
-                width:size,
-                height:size,
-                colorDark:fore,
-                colorLight:back
-    
+        function btn(){
+            const output = document.getElementById("output_id");
+            const img = document.getElementById("img_id");
+            const languages = document.getElementsByName("language");
+            console.log(languages);
+            for (let i = 0; i < 3; i++){
+                const language = languages[i].value;
+                if (languages[i].checked == true){
+                    // output.textContent = "好きな言語は"+language+"です。"
+                    output.textContent = `好きな言語は${language}です。`
+                    let src = "";
+                    if (language == "javascript"){
+                        src = "javascript.png";
+                    }
+                    if (language == "python"){
+                        src = "python.png";
+                    }
+                    if (language == "scratch"){
+                        src = "scratch.jpg";
+                    }
+                    const img_t = document.createElement("img");
+                    img_t.src = src;
+                    img_t.width = 300;
+                    img.innerHTML = "";
+                    img.appendChild(img_t);
+                }
             }
-            
-            new QRCode(output,opt);
-            document.getElementById("url_id").value = "";
-            document.getElementById("size_id").value = "";
-            document.getElementById("fore_id").value = "";
-            document.getElementById("back_id").value = "";
-
         }
-    }
-        </script>
-        </body>
+    </script>
+</body>
 </html>
