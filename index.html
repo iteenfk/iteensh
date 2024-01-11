@@ -3,53 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11-23</title>
+    <title>1-11</title>
     <style>
-        body{
-            text-align: center;
+        #canvas_id{
+            border: 1px solid red;
         }
     </style>
 </head>
 <body>
-    <h1>好きな言語を選んでください。</h1>
-    <input type="radio" name="language" value="javascript">javascript
-    <input type="radio" name="language" value="python">python
-    <input type="radio" name="language" value="scratch">scratch
-    <br>
-    <button onclick="btn()">クリック</button>
-    <div id="output_id"></div>
-    <div id="img_id"></div>  
-
-
+    <canvas id="canvas_id" width="500" height="400"></canvas>
     <script>
-        function btn(){
-            const output = document.getElementById("output_id");
-            const img = document.getElementById("img_id");
-            const languages = document.getElementsByName("language");
-            console.log(languages);
-            for (let i = 0; i < 3; i++){
-                const language = languages[i].value;
-                if (languages[i].checked == true){
-                    // output.textContent = "好きな言語は"+language+"です。"
-                    output.textContent = `好きな言語は${language}です。`
-                    let src = "";
-                    if (language == "javascript"){
-                        src = "javascript.png";
-                    }
-                    if (language == "python"){
-                        src = "python.png";
-                    }
-                    if (language == "scratch"){
-                        src = "scratch.jpg";
-                    }
-                    const img_t = document.createElement("img");
-                    img_t.src = src;
-                    img_t.width = 300;
-                    img.innerHTML = "";
-                    img.appendChild(img_t);
-                }
+        "use strict";
+
+        class Circle{
+            constructor(color,radius,x,y){
+                this.color = color;
+                this.radius = radius;
+                this.x = x;
+                this.y = y;
+            }
+
+            draw(){
+                const canvas = document.getElementById("canvas_id");
+                const ctx = canvas.getContext("2d");
+
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.radius,0,360);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+
+                console.log(ctx);
             }
         }
+
+        const redCircle = new Circle("red",30,100,100);
+        console.log(redCircle);
+        redCircle.draw();
+        
+        const blueCircle = new Circle("blue",50,200,200);
+        blueCircle.draw();
+
+        const greenCircle = new Circle("green",100,300,300);
+        greenCircle.draw();
+
     </script>
 </body>
 </html>
